@@ -1,0 +1,55 @@
+[project]
+name = "sci-cli"
+version = "0.1.0"
+description = "Package with CLI lightning template."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonargparse[signatures]>=4.49.0",
+    "lightning[extra]>=2.6.5",
+    "omegaconf>=2.3.1",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+    "pyright>=1.1.411",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.20",
+]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.6",
+]
+extra = [
+    "clearml>=2.1.10",
+]
+
+[tool.uv]
+exclude-newer = "7 days"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "UP", "B", "SIM", "W", "D"]
+# select= ["ALL"]  # Uncomment this line to enable all checks
+# preview = true  # Uncomment this line to enable preview checks
+ignore = ["D401", "D102"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.pyright]
+include = ["src"]
+typeCheckingMode = "standard"
+
+[tool.pytest]
+addopts = ["--cov=src", "--cov-report=html", "--cov-report=term:skip-covered", "--cov-fail-under=100"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["uv_build>=0.11.21,<0.12"]
+build-backend = "uv_build"
