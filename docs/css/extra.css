@@ -1,0 +1,12 @@
+.doc.doc-heading {
+  font-size: 1rem;
+}
+
+.doc.doc-contents {
+  margin-left: 1rem;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    padding: 10px 14px;
+}

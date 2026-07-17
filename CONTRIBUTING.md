@@ -42,14 +42,14 @@ uv run pre-commit run --all-files
 
 ## Source code contributions
 ### Testing
-__All contributions to the source code of ASSI should be documented and unit-tested__.
+__All contributions to the source code of sci-cli should be documented and unit-tested__.
 To run tests, use:
 ```bash
 uv run pytest
 ```
 To run tests with coverage reports in HTML, use:
 ```bash
-uv run pytest --cov=assi --cov-report html
+uv run pytest --cov=sci_cli --cov-report html
 ```
 The report will be generated in the  `htmlcov/index.html` file.
 
