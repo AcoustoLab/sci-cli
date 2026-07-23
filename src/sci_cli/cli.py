@@ -43,6 +43,7 @@ class CustomCLI(LightningCLI):
         parser.add_argument("--project_name", default="Untitled")
         parser.add_argument("--task_name", default="Untitled")
         parser.add_argument("--clearml_config_file", default="clearml.conf")
+        parser.add_argument("--log_name", default=None)
 
     def before_instantiate_classes(self):
         """Execute before instantiating classes in the CLI.

@@ -15,6 +15,9 @@ model:
 # --- Seed ---
 seed_everything: 42
 
+# --- Task ---
+log_name: power-${model.init_args.power}-lr-${optimizer.init_args.lr}-seed-${seed_everything}
+
 # --- Trainer ---
 trainer:
   max_epochs: 2
@@ -25,9 +28,17 @@ trainer:
         save_top_k: 3
         monitor: val_loss
   logger:
-    class_path: lightning.pytorch.loggers.CSVLogger
-    init_args:
-      save_dir: ${sci_cli.lightning_logs_dir:}
+    - class_path: lightning.pytorch.loggers.CSVLogger
+      init_args:
+        save_dir: ${sci_cli.lightning_logs_dir:}
+        name: ${log_name}
+  
+    # # --- Enables TensorBoard logging ---
+    # - class_path: lightning.pytorch.loggers.TensorBoardLogger
+    #   init_args:
+    #     save_dir: ${sci_cli.lightning_logs_dir:}
+    #     name: tb-${log_name}
+  
 
 # --- Optimizer ---
 optimizer:
