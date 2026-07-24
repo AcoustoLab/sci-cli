@@ -1,6 +1,6 @@
 [project]
 name = "sci-cli"
-version = "0.1.0"
+version = "1.0.1"
 description = "Package with CLI lightning template."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -13,6 +13,13 @@ dependencies = [
 [project.optional-dependencies]
 tensorboard = [
     "tensorboard>=2.21.0",
+]
+clearml = [
+    "clearml>=2.1.10",
+]
+all = [
+    "tensorboard>=2.21.0",
+    "clearml>=2.1.10",
 ]
 
 [dependency-groups]
@@ -28,9 +35,7 @@ docs = [
     "mkdocs-material>=9.7.6",
     "mkdocstrings[python]>=1.0.4",
 ]
-extra = [
-    "clearml>=2.1.10",
-]
+
 
 [tool.uv]
 exclude-newer = "7 days"
